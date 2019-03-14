@@ -1,0 +1,25 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: config-server     # 服务与服务之间相互调用一般都是根据这个name
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/carter-will/springcloud-config.git     #git仓库的地址
+          search-paths: myspringcloudconfig              # 配置仓库路径，这里是文件夹搜索路径
+          username: 1057967352@qq.com          # git仓库的用户名和密码，如果是public仓库，可以不写
+          password: qq15201418115
+          default-label: master           # 指定分支，不指定默认是master
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka/
+
+  instance:
+    lease-renewal-interval-in-seconds: 1   #每间隔1s，向服务端发送一次心跳，证明自己依然”存活“
+    lease-expiration-duration-in-seconds: 2   #告诉服务端，如果我2s之内没有给你发心跳，就代表我“死”了，将我踢出掉。

@@ -1,0 +1,16 @@
+server:
+  port: 8087
+
+spring:
+  application:
+    name: consumer-feign
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka
+#启用hystrix  Feign继承了hystrix，但是默认没有开启，所以我们要在配置文件中开启hystrix功能
+feign:
+  hystrix:
+    enabled: true
+

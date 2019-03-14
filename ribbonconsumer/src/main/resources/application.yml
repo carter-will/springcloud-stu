@@ -1,0 +1,11 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: consumer-ribbon         # 服务与服务之间相互调用一般都是根据这个name 。
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka       #      指定服务注册中心的地址
